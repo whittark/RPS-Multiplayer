@@ -17,3 +17,6 @@ You win if the champion you select dominates the other player's champion.
 ## To Chat
 Chat with the other player! Enter your message in the chat field beneath the game; select Send.
 
+## Enjoy!!
+
+
