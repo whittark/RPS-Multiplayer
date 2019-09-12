@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>RPS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/styles/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div id="header" class="row ver-spacer">
+			<div class="jumbotron">
+				<h1>ROCK ON</h1>
+				<h3>Battle a friend in this totally tubular multiplayer <b>rock</b>, <b>paper</b>, <b>scissors</b> game.</h3>
+				<hr class="jt1">
+				<h4>Enter your name, select <b style="font-weight:bolder;">START</b>, and select a champion to begin!</h4>
+			</div>
+		</div>
+		
+		<div class="row status ver-spacer">
+			<p><span id="game-players">&nbsp; </span> Visitors are in the game room</p>
+			<p id="busymsg" class="hide"></p>
+		</div>
+		
+		<div id="startrow" class="row ver-spacer">
+			<div id="startfrm" class="center-block">
+				<form id="nameinput" class="form-inline">
+					<input type="text" class="form-control" id="player-name" placeholder="Enter your name">
+					<button id="start" type="button" class="btn btn-default">Start</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="readygame">
+			<div id="gamerow" class="row ver-spacer">
+				
+				<!-- player1 -->
+				<div class="col-xs-4 players player1 frames">
+					<h3 class="player-no playerno1">&#9312;</h3>
+					<p id="wait1" class="waiting">Waiting for Player 1 ...</p>
+					<div id="player1" class="hide">
+						<div class="row">
+							<div class="col-xs-9">
+								<img src="assets/images/player1.png" class="img-responsive playerimg" alt="Player 1">
+								<h2 class="playername" id="playername1"></h2>
+							</div>
+							<div class="col-xs-3">
+								<div class="row">
+									<img src="assets/images/wr1.png" class="rps rps1 img-responsive avoid-clicks" data-value="r" title="Rock" alt="Rock">
+								</div>
+								<div class="row">
+									<img src="assets/images/wp1.png" class="rps rps1 img-responsive avoid-clicks" data-value="p" title="Paper" alt="Paper">
+								</div>
+								<div class="row">
+									<img src="assets/images/ws1.png" class="rps rps1 img-responsive avoid-clicks" data-value="s" title="Scissors" alt="Scissors">
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="scores center-block">
+								<img src="assets/images/win.png" class="" title="Wins" alt="Wins">
+								<span id="wins1" class="score">0</span>
+								<font class="spacer">&mdash;</font>
+								<span id="losses1" class="score">0</span>
+								<img src="assets/images/win.png" class="loseicon" title="Losses" alt="Losses">
+							</div>
+						</div>
+					</div>
+				</div><!-- player1 col -->
+
+				<div class="col-xs-4 text-center">
+					<div id="status" class="status frames">
+						<img id="rpsimg" src="assets/images/rps.png" class="img-responsive" alt="RPS">
+						<div id="statusblock" class="hide">
+					  	<div class="row">
+								<p id="namelbl" class="statustxt"></p>
+							</div>
+							<div class="row ">
+								<p id="turnlbl" class="statustxt"></p>
+							</div>
+							<div id="rps-show" class="row show-winner hide">
+								<img id="choice1" src="" class="col-xs-offset-2 col-xs-4 img-responsive" title="Rock" alt="Player 1 choice">
+								<img id="choice2" src="" class="col-xs-4 img-responsive" title="Paper" alt="Player 2 choice">
+							</div>
+							<div id="winnerdiv" class="row show-winner hide">
+								<p><span id="winner"></span></p>
+								<p><span id="winnertxt"></span></p>
+								<p><button id="play" type="button" class="btn btn-info hide">Play again!</button></p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- status col -->
+				
+				<!-- player2 -->
+				<div class="col-xs-4 players player2 frames">
+					<h3 class="player-no playerno2">&#9313;</h3>
+					<p id="wait2" class="waiting">Waiting for Player 2 ...</p>
+					<div id="player2" class="hide">
+						<div class="row">
+							<div class="col-xs-9 col-xs-push-3">
+								<img src="assets/images/player2.png" class="img-responsive playerimg" alt="Player 2">
+								<h2 class="playername" id="playername2"></h2>
+							</div>
+							<div class="col-xs-3 col-xs-pull-9">
+								<div class="row">
+									<img src="assets/images/wr2.png" class="rps rps2 img-responsive avoid-clicks" data-value="r" title="Rock" alt="Rock">
+								</div>
+								<div class="row">
+									<img src="assets/images/wp2.png" class="rps rps2 img-responsive avoid-clicks" data-value="p" title="Paper" alt="Paper">
+								</div>
+								<div class="row">
+									<img src="assets/images/ws2.png" class="rps rps2 img-responsive avoid-clicks" data-value="s" title="Scissors" alt="Scissors">
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="scores center-block">
+								<img src="assets/images/win.png" class="" title="Wins" alt="Wins">
+								<span id="wins2" class="score">0</span>
+								<font class="spacer">&mdash;</font>
+								<span id="losses2" class="score">0</span>
+								<img src="assets/images/win.png" class="loseicon" title="Losses" alt="Losses">						
+							</div>
+						</div>
+					</div>
+				</div><!-- player2 col -->
+
+			</div> <!-- row -->
+
+			<div id="chatrow" class="row">
+				<div id="chatdiv" class="center-block">
+					<div id="chat" class="form-control" readonly></div>
+					<form id="chatfrm" class="form-inline">
+						<input type="text" class="form-control" id="message" placeholder="Write your message!" autocomplete="off">
+						<button id="send" type="button" class="btn btn-default">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div><!-- container -->
+	<div class="footer">
+		<div class="container">
+			<p class="text-center"><script>document.write(new Date().getFullYear())</script></p>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>  
+	<script src="assets/scripts/app.js"></script>
+</body>
+</html>
