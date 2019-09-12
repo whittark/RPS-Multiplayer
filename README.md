@@ -1,5 +1,5 @@
 # RPS Multiplayer Game
-It's a rock, paper, scissors multiplayer game!
+It's a rock, paper, scissors multiplayer game! Visit the game room to play: https://whittark.github.io/RPS-Multiplayer/
 
 ## Game Start
 Enter your name; select START. 
