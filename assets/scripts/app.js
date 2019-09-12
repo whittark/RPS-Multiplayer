@@ -1,20 +1,24 @@
+// Firebase access
 var config = {
-	apiKey: "AIzaSyDU7Cddk_suODSN77BSaFAj5uSF7WDZc_A",
-	authDomain: "multirps-9190a.firebaseapp.com",
-	databaseURL: "https://multirps-9190a.firebaseio.com",
-	projectId: "multirps-9190a",
-	storageBucket: "multirps-9190a.appspot.com",
-	messagingSenderId: "771308533274"
-};
+	apiKey: "AIzaSyBf0gVHp5DOpZzAzqQLkmTeEncS_9ERags",
+	authDomain: "rps-multi-wt.firebaseapp.com",
+	databaseURL: "https://rps-multi-wt.firebaseio.com",
+	projectId: "rps-multi-wt",
+	storageBucket: "gs://rps-multi-wt.appspot.com/",
+	messagingSenderId: "1039334913880",
+  };
 
+// Initialize Firebase
 firebase.initializeApp(config);
 
+//Reference the firebase service
 var database = firebase.database(),
 		rpsRef = firebase.database().ref('/rpsgames'),
 		chatRef = firebase.database().ref('/chat'),
 		connectionsRef = database.ref("/connections"),
 		connectedRef = database.ref(".info/connected");
 
+//Define player and starting score varibles
 var pName = "",
 		pNum = 0,
 		pWins = 0,
@@ -27,8 +31,7 @@ var pName = "",
 		authorized = true,
 		resume = true;
 
-
-// Watch number of viewers
+// Retrieve and display the number of players in the game room
 connectedRef.on('value', function(snap) {
 	if (snap.val()) {
 		var con = connectionsRef.push(true);
@@ -46,8 +49,7 @@ chatRef.on('child_added', function(snapshot) {
 	console.log("The read failed with code: " + errorObject.code);
 });
 
-//////////////////////////////////////
-
+// Store game and player data
 rpsRef.on('value',function(snapshot){
 
 		var rpsGame = snapshot.val();
@@ -128,7 +130,7 @@ $('#start').click(function(event){
 	};
 });
 
-$('.rps').click(function(event){
+$('.rps').click(function(){
 	if(dbTurn === pNum){
 		pChoice = $(this).attr('data-value');
 		$(this).addClass('selected');
@@ -359,3 +361,5 @@ var rps = {
 		rpsRef.update(updates);
 	}
 };
+
+
